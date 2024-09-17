@@ -10,6 +10,31 @@
     <link rel="stylesheet" href="../static/css/style.css" />
     <title>vensiando</title>
     <link rel="icon" type="image/x-icon" href="../static/img/html2.png">
+    <!-- JS-->
+    <script>
+      function loadStyleBasedOnDevice() {
+          let linkElement = document.createElement('link');
+          linkElement.rel = 'stylesheet';
+
+          if (window.innerWidth <= 1024) {
+              // Mobile: load Bootstrap CSS
+              linkElement.href = 'https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css';
+          } else {
+              // Desktop: load CSS
+              linkElement = document.createElement('link');
+              linkElement.rel = 'stylesheet';
+              linkElement.href = "../static/css/style.css";
+          }
+
+          document.head.appendChild(linkElement);
+      }
+
+      // Run the function when the page loads
+      window.onload = loadStyleBasedOnDevice;
+
+      // Optional: Re-run the function when the window is resized
+      window.onresize = loadStyleBasedOnDevice;
+  </script>
   </head>
   <body>
     <header class="header">
